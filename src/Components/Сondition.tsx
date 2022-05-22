@@ -21,15 +21,19 @@ export const Сondition: React.FC<CounterType> = ({startValue, maxValue}) => {
     const styleCount = (value === maxValue ? style.checkTextRed : style.checkText)
 
     return (
-        <div className={style.checkBox}>
-            <div className={style.check}>
+        <div className={style.counterBox}>
+            <div className={style.counter}>
                 <div className={style.conditionText}>
                     <p>startValue:</p>
                     <p>maxValue:</p>
                 </div>
                 <div className={style.conditionInputs}>
-                    <input type="text"/>
-                    <input type="text"/>
+                    <div className={style.conditionInputsStartValue}>
+                        <input type="number"/>
+                    </div>
+                    <div className={style.conditionInputsMaxValue}>
+                        <input type="number"/>
+                    </div>
                 </div>
             </div>
             <div className={style.buttons}>

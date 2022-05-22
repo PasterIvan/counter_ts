@@ -8,12 +8,11 @@ import style from './App.module.css'
 function App() {
     return (
         <div className={style.App}>
-            <Сondition startValue={3}
+            <Сondition startValue={0}
                        maxValue={6}/>
-            <Counter startValue={3}
+            <Counter startValue={0}
                      maxValue={6}/>
         </div>
-
     );
 }
 
