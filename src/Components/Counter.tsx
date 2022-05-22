@@ -1,36 +1,25 @@
 import React from 'react';
 import Button from "./Button";
 import style from './Counter.module.css'
-import {CounterType, incAC, restAC} from "../bll/counterReducer";
-import {useDispatch, useSelector} from "react-redux";
-import {StoreType} from "../bll/ReduxStore";
+import {mapDispatchToPropsType, mapStateToPropsType} from './CounterContainer';
 
-export const Counter: React.FC<CounterType> = ({startValue, maxValue }) => {
+export type CounterPropsType = mapStateToPropsType & mapDispatchToPropsType
 
-    const value = useSelector<StoreType, number>(state => state.counter.value)
-    const dispatch= useDispatch()
+export const Counter: React.FC<CounterPropsType> = ({startValue, newStartValue: newStartValue, newMaxValue, incHandler, resetHandler}) => {
 
-    const incHandler = () => {
-        dispatch(incAC())
-     }
-
-    const resetHandler = () => {
-        dispatch(restAC())
-    }
-
-    const styleCount = (value === maxValue ? style.checkTextRed : style.checkText)
+    const styleCount = (startValue === newMaxValue ? style.checkTextRed : style.checkText)
 
     return (
         <div className={style.checkBox}>
             <div className={style.check}>
-                <div className={styleCount}>{value}</div>
+                <div className={styleCount}>{startValue}</div>
             </div>
             <div className={style.buttons}>
                 <div className={style.buttonInc}>
-                    <Button onClick={incHandler} disabled={value === maxValue}  >inc</Button>
+                    <Button onClick={incHandler} disabled={startValue === newMaxValue}>inc</Button>
                 </div>
                 <div className={style.buttonRest}>
-                    <Button onClick={resetHandler} disabled={value === startValue}>rest</Button>
+                    <Button onClick={resetHandler} disabled={startValue === startValue}>rest</Button>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ function App() {
             <Сondition startValue={0}
                        maxValue={6}/>
             <Counter startValue={0}
-                     maxValue={6}/>
+                     maxValue={5}/>
         </div>
     );
 }

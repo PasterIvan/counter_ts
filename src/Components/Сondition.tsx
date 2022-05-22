@@ -1,24 +1,19 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import Button from "./Button";
 import style from './Condition.module.css'
-import {CounterType, incAC, restAC} from "../bll/counterReducer";
-import {useDispatch, useSelector} from "react-redux";
-import {StoreType} from "../bll/ReduxStore";
+import {CounterType, updateNewStartValueAC} from "../bll/counterReducer";
 
 export const Сondition: React.FC<CounterType> = ({startValue, maxValue}) => {
 
-    const value = useSelector<StoreType, number>(state => state.counter.value)
-    const dispatch = useDispatch()
-
-    const incHandler = () => {
-        dispatch(incAC())
+    const onNewStartValue = (e: ChangeEvent<HTMLInputElement>) => {
+       let newStartValue =  Number(e.currentTarget.value)
+        updateNewStartValueAC(newStartValue)
     }
 
-    const resetHandler = () => {
-        dispatch(restAC())
+    const onNewMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
+       let newMaxValue =  Number(e.currentTarget.value)
+        updateNewStartValueAC(newMaxValue)
     }
-
-    const styleCount = (value === maxValue ? style.checkTextRed : style.checkText)
 
     return (
         <div className={style.counterBox}>
@@ -29,16 +24,16 @@ export const Сondition: React.FC<CounterType> = ({startValue, maxValue}) => {
                 </div>
                 <div className={style.conditionInputs}>
                     <div className={style.conditionInputsStartValue}>
-                        <input type="number"/>
+                        <input type="number" onChange={onNewStartValue}/>
                     </div>
                     <div className={style.conditionInputsMaxValue}>
-                        <input type="number"/>
+                        <input type="number" onChange={onNewMaxValue}/>
                     </div>
                 </div>
             </div>
             <div className={style.buttons}>
                 <div className={style.buttonSet}>
-                    <Button onClick={incHandler} disabled={value === maxValue}>set</Button>
+                    <Button onClick={()=>{console.log('wefcs')}} >set</Button>
                 </div>
             </div>
         </div>
