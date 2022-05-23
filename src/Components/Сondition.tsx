@@ -5,20 +5,16 @@ import {mapDispatchToPropsType, mapStateToPropsType } from './CounterContainer';
 
 export type CounterPropsType = mapStateToPropsType & mapDispatchToPropsType
 
-export const Сondition: React.FC<CounterPropsType> = ({ setNewStartValue,setNewMaxValue}) => {
+export const Сondition: React.FC<CounterPropsType> = ({setNewStartValue,setNewMaxValue, setNewValue}) => {
 
     const onNewStartValue = (e: ChangeEvent<HTMLInputElement>) => {
-       let newStartValue =  Number(e.currentTarget.value)
-        setNewStartValue(newStartValue)
+       let startValue =  Number(e.currentTarget.value)
+        setNewStartValue(startValue)
     }
 
     const onNewMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
-       let newMaxValue =  Number(e.currentTarget.value)
-        setNewMaxValue(newMaxValue)
-    }
-
-    const setNewValue = () => {
-        return console.log('new state')
+       let maxValue =  Number(e.currentTarget.value)
+        setNewMaxValue(maxValue)
     }
 
     return (

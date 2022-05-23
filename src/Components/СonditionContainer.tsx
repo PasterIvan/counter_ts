@@ -2,23 +2,26 @@ import {StoreType} from "../bll/ReduxStore";
 import {Dispatch} from "react";
 import { Сondition } from "./Сondition";
 import {connect} from "react-redux";
-import {setNewMaxValueAC, setNewStartValueAC} from "../bll/counterReducer";
+import {setNewMaxValueAC, setNewStartValueAC, setNewValueAC} from "../bll/counterReducer";
 
 
 export type mapStateToPropsType = {
-    newStartValue: number
-    newMaxValue: number
+    value: number
+    startValue: number
+    maxValue: number
 }
 
 export type mapDispatchToPropsType = {
     setNewStartValue: (newStartValue: number) => void
     setNewMaxValue: (newMaxValue: number) => void
+    setNewValue: (newStartValue: number, newMaxValue: number) => void
 }
 
 const mapStateToProps = (state: StoreType): mapStateToPropsType => {
     return {
-        newStartValue: state.counter.newStartValue,
-        newMaxValue: state.counter.newMaxValue
+        value: state.counter.value,
+        startValue: state.counter.startValue,
+        maxValue: state.counter.maxValue
     }
 }
 
@@ -29,6 +32,9 @@ const mapDispatchToProps = (dispatch: Dispatch<any>): mapDispatchToPropsType => 
         },
         setNewMaxValue: (newMaxValue) => {
             dispatch(setNewMaxValueAC(newMaxValue))
+        },
+        setNewValue: () => {
+            dispatch(setNewValueAC())
         }
     }
 }

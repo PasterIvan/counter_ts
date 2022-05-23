@@ -2,9 +2,7 @@ export const INC = 'INC';
 export const REST = 'REST';
 export const SET_NEW_START_VALUE = 'SET_NEW_START_VALUE';
 export const SET_NEW_MAX_VALUE = 'SET_NEW_MAX_VALUE';
-export const UPDATE_NEW_START_VALUE = 'UPDATE_NEW_START_VALUE';
-export const UPDATE_NEW_MAX_VALUE = 'UPDATE_NEW_MAX_VALUE';
-export const SET = 'SET';
+export const SET_NEW_VALUE = 'SET_NEW_VALUE';
 
 export type incACType = {
     type: typeof INC
@@ -22,36 +20,48 @@ export type SetNewMaxValuesACType = {
     type: typeof SET_NEW_MAX_VALUE
     newMaxValue: number
 }
-export type CounterReducerActionType = incACType | restACType | SetNewStartValuesACType | SetNewMaxValuesACType
+export type SetNewValuesACType = {
+    type: typeof SET_NEW_VALUE
+}
+export type CounterReducerActionType =
+    incACType
+    | restACType
+    | SetNewStartValuesACType
+    | SetNewMaxValuesACType
+    | SetNewValuesACType
 
 export type initialStateType = typeof initialState
 
 let initialState = {
-    startValue: 0,
-    maxValue: 5,
-    newStartValue: Number.NaN,
-    newMaxValue: Number.NaN
+    value: 0,
+    startValue: Number.NaN,
+    maxValue: Number.NaN
 }
 
 export const counterReducer = (state: initialStateType = initialState, action: CounterReducerActionType): initialStateType => {
     switch (action.type) {
         case INC:
             return {
-                ...state, startValue: state.newStartValue + 1
+                ...state, value: state.startValue + 1
             }
         case REST:
             return {
-                ...state, startValue: state.newStartValue
+                ...state, value: state.startValue
             }
         case SET_NEW_START_VALUE:
             return {
                 ...state,
-                newStartValue: action.newStartValue
+                startValue: action.newStartValue
             }
         case SET_NEW_MAX_VALUE:
             return {
                 ...state,
-                newMaxValue: action.newMaxValue
+                maxValue: action.newMaxValue
+            }
+        case SET_NEW_VALUE:
+            return {
+                ...state,
+                value: action.
             }
         default:
             return state
@@ -60,21 +70,31 @@ export const counterReducer = (state: initialStateType = initialState, action: C
 export const incAC = (): incACType => {
     return {
         type: INC,
-     } as const
+    } as const
 }
 
 export const restAC = (): restACType => {
     return {
         type: REST,
-     } as const
+    } as const
 }
 
-export const setNewStartValueAC = (newStartValue: number): SetNewStartValuesACType => ({
-    type: SET_NEW_START_VALUE,
-    newStartValue: newStartValue
-})
+export const setNewStartValueAC = (startValue: number): SetNewStartValuesACType => {
+    return {
+        type: SET_NEW_START_VALUE,
+        newStartValue: startValue
+    } as const
+}
 
-export const setNewMaxValueAC = (newMaxValue: number): SetNewMaxValuesACType => ({
-    type: SET_NEW_MAX_VALUE,
-    newMaxValue: newMaxValue
-})
+export const setNewMaxValueAC = (startValue: number): SetNewMaxValuesACType => {
+    return {
+        type: SET_NEW_MAX_VALUE,
+        newMaxValue: startValue
+    } as const
+}
+
+export const setNewValueAC = (): SetNewValuesACType => {
+    return {
+        type: SET_NEW_VALUE,
+    } as const
+}
