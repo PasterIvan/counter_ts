@@ -1,7 +1,6 @@
 import {combineReducers, legacy_createStore as createStore} from 'redux';
 import {counterReducer} from "./counterReducer";
 
-
 let rootReducers = combineReducers({
     counter: counterReducer,
 })

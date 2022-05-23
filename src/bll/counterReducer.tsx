@@ -1,39 +1,34 @@
 export const INC = 'INC';
 export const REST = 'REST';
+export const SET_NEW_START_VALUE = 'SET_NEW_START_VALUE';
+export const SET_NEW_MAX_VALUE = 'SET_NEW_MAX_VALUE';
 export const UPDATE_NEW_START_VALUE = 'UPDATE_NEW_START_VALUE';
 export const UPDATE_NEW_MAX_VALUE = 'UPDATE_NEW_MAX_VALUE';
-
-export type CounterType = {
-    startValue: number
-    maxValue: number
-}
+export const SET = 'SET';
 
 export type incACType = {
     type: typeof INC
-    // payload: {newStartValue: number}
 }
 
 export type restACType = {
     type: typeof REST
-    // payload: {newStartValue: number}
 }
 
-export type UpdateNewStartValueACType = {
-    type: typeof UPDATE_NEW_START_VALUE
+export type SetNewStartValuesACType = {
+    type: typeof SET_NEW_START_VALUE
     newStartValue: number
 }
-
-export type UpdateNewMaxValueACType = {
-    type: typeof UPDATE_NEW_MAX_VALUE
+export type SetNewMaxValuesACType = {
+    type: typeof SET_NEW_MAX_VALUE
     newMaxValue: number
 }
-
-export type CounterReducerActionType = incACType | restACType
+export type CounterReducerActionType = incACType | restACType | SetNewStartValuesACType | SetNewMaxValuesACType
 
 export type initialStateType = typeof initialState
 
 let initialState = {
     startValue: 0,
+    maxValue: 5,
     newStartValue: Number.NaN,
     newMaxValue: Number.NaN
 }
@@ -48,33 +43,38 @@ export const counterReducer = (state: initialStateType = initialState, action: C
             return {
                 ...state, startValue: state.newStartValue
             }
+        case SET_NEW_START_VALUE:
+            return {
+                ...state,
+                newStartValue: action.newStartValue
+            }
+        case SET_NEW_MAX_VALUE:
+            return {
+                ...state,
+                newMaxValue: action.newMaxValue
+            }
         default:
             return state
     }
 }
-export const incAC = (/*newStartValue: number*/): incACType => {
+export const incAC = (): incACType => {
     return {
         type: INC,
-        // payload: {newStartValue}
      } as const
 }
 
-export const restAC = (/*newStartValue: number*/): restACType => {
+export const restAC = (): restACType => {
     return {
         type: REST,
-        // payload: {newStartValue}
      } as const
 }
 
-export const updateNewStartValueAC = (newStartValue: number): UpdateNewStartValueACType => ({
-    type: UPDATE_NEW_START_VALUE,
-    newStartValue: newStartValue,
-
+export const setNewStartValueAC = (newStartValue: number): SetNewStartValuesACType => ({
+    type: SET_NEW_START_VALUE,
+    newStartValue: newStartValue
 })
 
-export const updateNewMaxValueAC = (newMaxValue: number): UpdateNewMaxValueACType => ({
-    type: UPDATE_NEW_MAX_VALUE,
+export const setNewMaxValueAC = (newMaxValue: number): SetNewMaxValuesACType => ({
+    type: SET_NEW_MAX_VALUE,
     newMaxValue: newMaxValue
 })
-
-

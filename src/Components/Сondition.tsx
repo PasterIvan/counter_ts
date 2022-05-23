@@ -1,18 +1,24 @@
 import React, {ChangeEvent} from 'react';
 import Button from "./Button";
 import style from './Condition.module.css'
-import {CounterType, updateNewStartValueAC} from "../bll/counterReducer";
+import {mapDispatchToPropsType, mapStateToPropsType } from './CounterContainer';
 
-export const Сondition: React.FC<CounterType> = ({startValue, maxValue}) => {
+export type CounterPropsType = mapStateToPropsType & mapDispatchToPropsType
+
+export const Сondition: React.FC<CounterPropsType> = ({ setNewStartValue,setNewMaxValue}) => {
 
     const onNewStartValue = (e: ChangeEvent<HTMLInputElement>) => {
        let newStartValue =  Number(e.currentTarget.value)
-        updateNewStartValueAC(newStartValue)
+        setNewStartValue(newStartValue)
     }
 
     const onNewMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
        let newMaxValue =  Number(e.currentTarget.value)
-        updateNewStartValueAC(newMaxValue)
+        setNewMaxValue(newMaxValue)
+    }
+
+    const setNewValue = () => {
+        return console.log('new state')
     }
 
     return (
@@ -33,7 +39,7 @@ export const Сondition: React.FC<CounterType> = ({startValue, maxValue}) => {
             </div>
             <div className={style.buttons}>
                 <div className={style.buttonSet}>
-                    <Button onClick={()=>{console.log('wefcs')}} >set</Button>
+                    <Button onClick={setNewValue} >set</Button>
                 </div>
             </div>
         </div>

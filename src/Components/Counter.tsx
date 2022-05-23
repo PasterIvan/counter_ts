@@ -5,7 +5,7 @@ import {mapDispatchToPropsType, mapStateToPropsType} from './CounterContainer';
 
 export type CounterPropsType = mapStateToPropsType & mapDispatchToPropsType
 
-export const Counter: React.FC<CounterPropsType> = ({startValue, newStartValue: newStartValue, newMaxValue, incHandler, resetHandler}) => {
+export const Counter: React.FC<CounterPropsType> = ({startValue, newStartValue, newMaxValue, incHandler, resetHandler}) => {
 
     const styleCount = (startValue === newMaxValue ? style.checkTextRed : style.checkText)
 
