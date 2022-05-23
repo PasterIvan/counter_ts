@@ -2,7 +2,7 @@ import React, {Dispatch} from "react";
 import {Counter} from "./Counter";
 import {StoreType} from "../bll/ReduxStore";
 import {connect} from "react-redux";
-import {incAC, restAC, setNewMaxValueAC, setNewStartValueAC} from "../bll/counterReducer";
+import {incAC, restAC, setNewMaxValueAC, setNewStartValueAC, setNewValueAC} from "../bll/counterReducer";
 
 export type mapStateToPropsType = {
     value: number
@@ -41,7 +41,7 @@ const mapDispatchToProps = (dispatch: Dispatch<any>): mapDispatchToPropsType => 
             dispatch(setNewMaxValueAC(maxValue))
         },
         setNewValue: () => {
-            dispatch(setNewMaxValueAC())
+            dispatch(setNewValueAC())
         }
     }
 }

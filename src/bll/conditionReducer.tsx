@@ -1,6 +1,8 @@
-export const SET = 'SET';
+import {StoreType} from "./ReduxStore";
+
 export const SET_NEW_START_VALUE = 'SET_NEW_START_VALUE';
 export const SET_NEW_MAX_VALUE = 'SET_NEW_MAX_VALUE';
+export const SET_NEW_VALUE = 'SET_NEW_VALUE';
 
 export type SetNewStartValuesACType = {
     type: typeof SET_NEW_START_VALUE
@@ -10,51 +12,51 @@ export type SetNewMaxValuesACType = {
     type: typeof SET_NEW_MAX_VALUE
     newMaxValue: number
 }
-// export type SetACType = {
-//     type: typeof SET
-// }
+export type SetNewValuesACType = {
+    type: typeof SET_NEW_VALUE
+}
 
-export type CounterReducerActionType = SetNewStartValuesACType | SetNewMaxValuesACType /*| SetACType*/
+export type ConditionReducerActionType = SetNewStartValuesACType | SetNewMaxValuesACType | SetNewValuesACType
 
-export type initialStateType = typeof initialState
-
-let initialState = {}
-
-export const conditionReducer = (state: initialStateType = initialState, action: CounterReducerActionType): initialStateType => {
+export const conditionReducer = (action: ConditionReducerActionType) => {
     switch (action.type) {
         case SET_NEW_START_VALUE:
             return {
                 ...state,
-                newStartValue: action.newStartValue
+                startValue: action.newStartValue
             }
         case SET_NEW_MAX_VALUE:
             return {
                 ...state,
-                newMaxValue: action.newMaxValue
+                maxValue: action.newMaxValue
             }
-        // case SET:
-        //     return {
-        //         ...state,
-        //         newStartValue: action.newStartValue,
-        //         newMaxValue: action.newMaxValue
-        //     }
+        case SET_NEW_VALUE:
+            return {
+                ...state,
+                value: state.counter.startValue
+            }
         default:
             return state
     }
 }
 
-export const setNewStartValueAC = (newStartValue: number): SetNewStartValuesACType => ({
-    type: SET_NEW_START_VALUE,
-    newStartValue: newStartValue
-})
+export const setNewStartValueAC = (startValue: number): SetNewStartValuesACType => {
+    return {
+        type: SET_NEW_START_VALUE,
+        newStartValue: startValue
+    } as const
+}
 
-export const setNewMaxValueAC = (newMaxValue: number): SetNewMaxValuesACType => ({
-    type: SET_NEW_MAX_VALUE,
-    newMaxValue: newMaxValue
-})
+export const setNewMaxValueAC = (startValue: number): SetNewMaxValuesACType => {
+    return {
+        type: SET_NEW_MAX_VALUE,
+        newMaxValue: startValue
+    } as const
+}
 
-// export const setAC = (): SetACType => ({
-//     type: SET,
-// })
-
+export const setNewValueAC = (): SetNewValuesACType => {
+    return {
+        type: SET_NEW_VALUE,
+    } as const
+}
 

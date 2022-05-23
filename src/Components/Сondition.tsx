@@ -5,7 +5,7 @@ import {mapDispatchToPropsType, mapStateToPropsType } from './CounterContainer';
 
 export type CounterPropsType = mapStateToPropsType & mapDispatchToPropsType
 
-export const Сondition: React.FC<CounterPropsType> = ({setNewStartValue,setNewMaxValue, setNewValue}) => {
+export const Сondition: React.FC<CounterPropsType> = ({setNewStartValue,setNewMaxValue, setNewValue, incHandler, resetHandler}) => {
 
     const onNewStartValue = (e: ChangeEvent<HTMLInputElement>) => {
        let startValue =  Number(e.currentTarget.value)

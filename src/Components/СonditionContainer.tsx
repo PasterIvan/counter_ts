@@ -14,7 +14,7 @@ export type mapStateToPropsType = {
 export type mapDispatchToPropsType = {
     setNewStartValue: (newStartValue: number) => void
     setNewMaxValue: (newMaxValue: number) => void
-    setNewValue: (newStartValue: number, newMaxValue: number) => void
+    setNewValue: () => void
 }
 
 const mapStateToProps = (state: StoreType): mapStateToPropsType => {

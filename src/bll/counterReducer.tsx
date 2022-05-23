@@ -42,11 +42,12 @@ export const counterReducer = (state: initialStateType = initialState, action: C
     switch (action.type) {
         case INC:
             return {
-                ...state, value: state.startValue + 1
+                ...state, value: state.value + 1
             }
         case REST:
             return {
-                ...state, value: state.startValue
+                ...state,
+                value: state.startValue
             }
         case SET_NEW_START_VALUE:
             return {
@@ -61,7 +62,7 @@ export const counterReducer = (state: initialStateType = initialState, action: C
         case SET_NEW_VALUE:
             return {
                 ...state,
-                value: action.
+                value: state.startValue
             }
         default:
             return state
