@@ -1,10 +1,9 @@
 import React, {ChangeEvent} from 'react';
 import Button from "./Button";
 import style from './Condition.module.css'
-import {СonditionPropsType} from "./СonditionContainer";
+import {ConditionPropsType} from "./СonditionContainer";
 
-
-export const Сondition: React.FC<СonditionPropsType> = ({setNewStartValue,setNewMaxValue, setNewValue}) => {
+export const Condition: React.FC<ConditionPropsType> = ({setNewStartValue,setNewMaxValue, setNewValue}) => {
 
     const onNewStartValue = (e: ChangeEvent<HTMLInputElement>) => {
        let startValue =  Number(e.currentTarget.value)

@@ -13,4 +13,3 @@ store.subscribe(()=>{
 })
 
 export type StateType = ReturnType<typeof rootReducers>
-export type StoreType = typeof store

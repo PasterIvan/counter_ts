@@ -45,5 +45,6 @@ const mapDispatchToProps = (dispatch: Dispatch<any>): mapDispatchToPropsType => 
         }
     }
 }
+
 export default connect<mapStateToPropsType,mapDispatchToPropsType,{},StateType>
 (mapStateToProps,mapDispatchToProps )(Counter)

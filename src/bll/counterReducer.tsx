@@ -68,6 +68,7 @@ export const counterReducer = (state: initialStateType = initialState, action: C
             return state
     }
 }
+
 export const incAC = (): incACType => {
     return {
         type: INC,

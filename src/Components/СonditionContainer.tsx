@@ -1,9 +1,8 @@
 import {StateType} from "../bll/ReduxStore";
 import {Dispatch} from "react";
-import { Сondition } from "./Сondition";
+import { Condition } from "./Сondition";
 import {connect} from "react-redux";
 import {setNewMaxValueAC, setNewStartValueAC, setNewValueAC} from "../bll/counterReducer";
-
 
 export type mapStateToPropsType = {
     value: number
@@ -25,7 +24,7 @@ const mapStateToProps = (state: StateType): mapStateToPropsType => {
     }
 }
 
-export type СonditionPropsType = mapStateToPropsType & mapDispatchToPropsType
+export type ConditionPropsType = mapStateToPropsType & mapDispatchToPropsType
 
 const mapDispatchToProps = (dispatch: Dispatch<any>): mapDispatchToPropsType => {
     return {
@@ -40,5 +39,6 @@ const mapDispatchToProps = (dispatch: Dispatch<any>): mapDispatchToPropsType => 
         }
     }
 }
+
 export default connect<mapStateToPropsType, mapDispatchToPropsType, {}, StateType>
-(mapStateToProps, mapDispatchToProps)(Сondition)
+(mapStateToProps, mapDispatchToProps)(Condition)

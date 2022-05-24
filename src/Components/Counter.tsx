@@ -21,27 +21,6 @@ export const Counter: React.FC<CounterPropsType> = ({value, startValue, maxValue
 
     return (
         <div>
-            {/*<div className={style.counterBox}>*/}
-            {/*    <div className={style.counter}>*/}
-            {/*        <div className={style.conditionText}>*/}
-            {/*            <p>startValue:</p>*/}
-            {/*            <p>maxValue:</p>*/}
-            {/*        </div>*/}
-            {/*        <div className={style.conditionInputs}>*/}
-            {/*            <div className={style.conditionInputsStartValue}>*/}
-            {/*                <input type="number" onChange={onNewStartValue}/>*/}
-            {/*            </div>*/}
-            {/*            <div className={style.conditionInputsMaxValue}>*/}
-            {/*                <input type="number" onChange={onNewMaxValue}/>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*    <div className={style.buttons}>*/}
-            {/*        <div className={style.buttonSet}>*/}
-            {/*            <Button onClick={setNewValue}>set</Button>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
             <div className={style.checkBox}>
                 <div className={style.check}>
                     <div className={styleCount}>{value}</div>
@@ -56,7 +35,5 @@ export const Counter: React.FC<CounterPropsType> = ({value, startValue, maxValue
                 </div>
             </div>
         </div>
-
-
     )
 }
