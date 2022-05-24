@@ -25,6 +25,8 @@ const mapStateToProps = (state: StateType): mapStateToPropsType => {
     }
 }
 
+export type СonditionPropsType = mapStateToPropsType & mapDispatchToPropsType
+
 const mapDispatchToProps = (dispatch: Dispatch<any>): mapDispatchToPropsType => {
     return {
         setNewStartValue: (newStartValue) => {

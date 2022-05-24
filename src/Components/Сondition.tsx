@@ -1,11 +1,10 @@
 import React, {ChangeEvent} from 'react';
 import Button from "./Button";
 import style from './Condition.module.css'
-import {mapDispatchToPropsType, mapStateToPropsType } from './CounterContainer';
+import {СonditionPropsType} from "./СonditionContainer";
 
-export type CounterPropsType = mapStateToPropsType & mapDispatchToPropsType
 
-export const Сondition: React.FC<CounterPropsType> = ({setNewStartValue,setNewMaxValue, setNewValue, incHandler, resetHandler}) => {
+export const Сondition: React.FC<СonditionPropsType> = ({setNewStartValue,setNewMaxValue, setNewValue}) => {
 
     const onNewStartValue = (e: ChangeEvent<HTMLInputElement>) => {
        let startValue =  Number(e.currentTarget.value)

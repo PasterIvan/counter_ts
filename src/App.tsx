@@ -8,7 +8,7 @@ const App = () =>{
 
     return (
         <div className={style.App}>
-            {/*<СonditionContainer />*/}
+            <СonditionContainer />
             <CounterContainer />
         </div>
     );
