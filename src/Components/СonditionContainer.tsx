@@ -1,4 +1,4 @@
-import {StoreType} from "../bll/ReduxStore";
+import {StateType} from "../bll/ReduxStore";
 import {Dispatch} from "react";
 import { Сondition } from "./Сondition";
 import {connect} from "react-redux";
@@ -17,7 +17,7 @@ export type mapDispatchToPropsType = {
     setNewValue: () => void
 }
 
-const mapStateToProps = (state: StoreType): mapStateToPropsType => {
+const mapStateToProps = (state: StateType): mapStateToPropsType => {
     return {
         value: state.counter.value,
         startValue: state.counter.startValue,
@@ -38,5 +38,5 @@ const mapDispatchToProps = (dispatch: Dispatch<any>): mapDispatchToPropsType => 
         }
     }
 }
-export default connect<mapStateToPropsType, mapDispatchToPropsType, {}, StoreType>
+export default connect<mapStateToPropsType, mapDispatchToPropsType, {}, StateType>
 (mapStateToProps, mapDispatchToProps)(Сondition)

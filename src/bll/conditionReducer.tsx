@@ -1,4 +1,4 @@
-import {StoreType} from "./ReduxStore";
+import {StateType} from "./ReduxStore";
 
 export const SET_NEW_START_VALUE = 'SET_NEW_START_VALUE';
 export const SET_NEW_MAX_VALUE = 'SET_NEW_MAX_VALUE';

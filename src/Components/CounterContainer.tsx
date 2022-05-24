@@ -1,6 +1,6 @@
 import React, {Dispatch} from "react";
 import {Counter} from "./Counter";
-import {StoreType} from "../bll/ReduxStore";
+import {StateType} from "../bll/ReduxStore";
 import {connect} from "react-redux";
 import {incAC, restAC, setNewMaxValueAC, setNewStartValueAC, setNewValueAC} from "../bll/counterReducer";
 
@@ -18,7 +18,7 @@ export type mapDispatchToPropsType = {
     setNewValue: () => void
 }
 
-const mapStateToProps = (state: StoreType): mapStateToPropsType => {
+const mapStateToProps = (state: StateType): mapStateToPropsType => {
     return {
         value: state.counter.value,
         startValue: state.counter.startValue,
@@ -45,5 +45,5 @@ const mapDispatchToProps = (dispatch: Dispatch<any>): mapDispatchToPropsType => 
         }
     }
 }
-export default connect<mapStateToPropsType,mapDispatchToPropsType,{},StoreType>
+export default connect<mapStateToPropsType,mapDispatchToPropsType,{},StateType>
 (mapStateToProps,mapDispatchToProps )(Counter)
