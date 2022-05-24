@@ -34,8 +34,8 @@ export type initialStateType = typeof initialState
 
 let initialState = {
     value: 0,
-    startValue: Number.NaN,
-    maxValue: Number.NaN
+    startValue: 0,
+    maxValue: 0
 }
 
 export const counterReducer = (state: initialStateType = initialState, action: CounterReducerActionType): initialStateType => {
@@ -62,7 +62,9 @@ export const counterReducer = (state: initialStateType = initialState, action: C
         case SET_NEW_VALUE:
             return {
                 ...state,
-                value: state.startValue
+                value: state.startValue,
+                startValue: state.startValue,
+                maxValue: state.maxValue
             }
         default:
             return state

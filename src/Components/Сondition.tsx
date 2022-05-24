@@ -3,15 +3,15 @@ import Button from "./Button";
 import style from './Condition.module.css'
 import {ConditionPropsType} from "./СonditionContainer";
 
-export const Condition: React.FC<ConditionPropsType> = ({setNewStartValue,setNewMaxValue, setNewValue}) => {
+export const Condition: React.FC<ConditionPropsType> = ({setNewStartValue,setNewMaxValue, setNewValue, startValue, maxValue}) => {
 
     const onNewStartValue = (e: ChangeEvent<HTMLInputElement>) => {
-       let startValue =  Number(e.currentTarget.value)
+       let startValue = e.currentTarget.valueAsNumber
         setNewStartValue(startValue)
     }
 
     const onNewMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
-       let maxValue =  Number(e.currentTarget.value)
+       let maxValue = e.currentTarget.valueAsNumber
         setNewMaxValue(maxValue)
     }
 
