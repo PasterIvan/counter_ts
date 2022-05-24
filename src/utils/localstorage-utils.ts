@@ -16,7 +16,5 @@ export const saveState = (state: StateType) => {
     try {
         const serializedState = JSON.stringify(state)
         localStorage.setItem('state', serializedState)
-    } catch {
-
-    }
+    } catch {}
 }

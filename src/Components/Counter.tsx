@@ -1,21 +1,11 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import Button from "./Button";
 import style from './Counter.module.css'
 import {mapDispatchToPropsType, mapStateToPropsType} from './CounterContainer';
 
 export type CounterPropsType = mapStateToPropsType & mapDispatchToPropsType
 
-export const Counter: React.FC<CounterPropsType> = ({value, startValue, maxValue, incHandler, resetHandler, setNewMaxValue, setNewStartValue, setNewValue}) => {
-
-    const onNewStartValue = (e: ChangeEvent<HTMLInputElement>) => {
-        let startValue =  Number(e.currentTarget.value)
-        setNewStartValue(startValue)
-    }
-
-    const onNewMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
-        let maxValue =  Number(e.currentTarget.value)
-        setNewMaxValue(maxValue)
-    }
+export const Counter: React.FC<CounterPropsType> = ({value, startValue, maxValue, incHandler, resetHandler}) => {
 
     const styleCount = (value >= maxValue ? style.checkTextRed : style.checkText)
 

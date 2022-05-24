@@ -1,4 +1,4 @@
-import React, {Dispatch} from "react";
+import {Dispatch} from "react";
 import {Counter} from "./Counter";
 import {StateType} from "../bll/ReduxStore";
 import {connect} from "react-redux";
