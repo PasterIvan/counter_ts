@@ -4,31 +4,18 @@ export const SET_NEW_START_VALUE = 'SET_NEW_START_VALUE';
 export const SET_NEW_MAX_VALUE = 'SET_NEW_MAX_VALUE';
 export const SET_NEW_VALUE = 'SET_NEW_VALUE';
 
-export type incACType = {
-    type: typeof INC
-}
+export type incActionType = ReturnType<typeof incAC>
+export type restActionType = ReturnType<typeof restAC>
+export type SetNewStartValuesActionType = ReturnType<typeof setNewStartValueAC>
+export type SetNewMaxValuesActionType = ReturnType<typeof setNewMaxValueAC>
+export type SetNewValuesActionType = ReturnType<typeof setNewValueAC>
 
-export type restACType = {
-    type: typeof REST
-}
-
-export type SetNewStartValuesACType = {
-    type: typeof SET_NEW_START_VALUE
-    newStartValue: number
-}
-export type SetNewMaxValuesACType = {
-    type: typeof SET_NEW_MAX_VALUE
-    newMaxValue: number
-}
-export type SetNewValuesACType = {
-    type: typeof SET_NEW_VALUE
-}
 export type CounterReducerActionType =
-    incACType
-    | restACType
-    | SetNewStartValuesACType
-    | SetNewMaxValuesACType
-    | SetNewValuesACType
+    incActionType
+    | restActionType
+    | SetNewStartValuesActionType
+    | SetNewMaxValuesActionType
+    | SetNewValuesActionType
 
 export type initialStateType = typeof initialState
 
@@ -71,34 +58,22 @@ export const counterReducer = (state: initialStateType = initialState, action: C
     }
 }
 
-export const incAC = (): incACType => {
-    return {
-        type: INC,
-    } as const
+export const incAC = () => {
+    return {type: INC} as const
 }
 
-export const restAC = (): restACType => {
-    return {
-        type: REST,
-    } as const
+export const restAC = () => {
+    return {type: REST} as const
 }
 
-export const setNewStartValueAC = (startValue: number): SetNewStartValuesACType => {
-    return {
-        type: SET_NEW_START_VALUE,
-        newStartValue: startValue
-    } as const
+export const setNewStartValueAC = (startValue: number) => {
+    return {type: SET_NEW_START_VALUE, newStartValue: startValue} as const
 }
 
-export const setNewMaxValueAC = (startValue: number): SetNewMaxValuesACType => {
-    return {
-        type: SET_NEW_MAX_VALUE,
-        newMaxValue: startValue
-    } as const
+export const setNewMaxValueAC = (startValue: number) => {
+    return {type: SET_NEW_MAX_VALUE, newMaxValue: startValue} as const
 }
 
-export const setNewValueAC = (): SetNewValuesACType => {
-    return {
-        type: SET_NEW_VALUE,
-    } as const
+export const setNewValueAC = () => {
+    return {type: SET_NEW_VALUE} as const
 }
