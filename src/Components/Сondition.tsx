@@ -24,10 +24,10 @@ export const Condition: React.FC<ConditionPropsType> = ({setNewStartValue,setNew
                 </div>
                 <div className={style.conditionInputs}>
                     <div className={style.conditionInputsStartValue}>
-                        <input type="number" onChange={onNewStartValue}/>
+                        <input type="number" onChange={onNewStartValue} value={startValue}/>
                     </div>
                     <div className={style.conditionInputsMaxValue}>
-                        <input type="number" onChange={onNewMaxValue}/>
+                        <input type="number" onChange={onNewMaxValue} value={maxValue}/>
                     </div>
                 </div>
             </div>
